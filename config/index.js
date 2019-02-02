@@ -10,7 +10,13 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+		'/product':{
+			target:'http://m.i360mall.com',
+			changeOrigin:true
+			
+		}
+	},
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
