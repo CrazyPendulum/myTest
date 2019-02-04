@@ -2,12 +2,12 @@
 	<div>
 		 <div class="block" v-if="this.bannerList.length">
 		  <el-carousel height="140px">
-		    <el-carousel-item v-for="item in bannerList" :key="item">
+		    <el-carousel-item v-for="item in bannerList" :key="item.imageUrl">
 		      <a :href="item.url"><img :src="item.imageUrl" alt="图片显示失败"></a>
 		    </el-carousel-item>
 		  </el-carousel>
 		</div>
-		<div class="three">
+		<div class="three" v-if="gridsV2.length">
 			<div class="left">
 				<p class="title">{{this.gridsV2[0].title}}</p>
 				<p class="text">{{this.gridsV2[0].text}}</p>
@@ -26,16 +26,23 @@
 				</div>
 			</div>
 		</div>
+		<div class="title_home">
+			<Title text="小编精选，全场特惠 (ง •̀_•́)ง"></Title>
+		</div>
+		<List v-bind:list="list" v-if="list.length"></List>
 	</div>
 </template>
 <script>
 	import 'element-ui/lib/theme-chalk/index.css';
 	import axios from 'axios'
+	import Title from './title'
+	import List from './brandList'
 	export default {
 		data(){
 			return{
 				bannerList:[],
-				gridsV2:[]
+				gridsV2:[],
+				list:[]
 			}
 		},
 		mounted(){
@@ -46,7 +53,12 @@
 				// console.log(res.data)
 				this.bannerList = res.data.data.banners;
 				this.gridsV2 = res.data.data.gridsV2;
+				this.list = res.data.data.items.list;
 			})
+		},
+		components:{
+			Title,
+			List
 		}
 	}
 </script>
@@ -134,5 +146,8 @@
 			position:relative;
 		}
 	}	
+  }
+  div.title_home{
+	  text-align: center;
   }
 </style>
