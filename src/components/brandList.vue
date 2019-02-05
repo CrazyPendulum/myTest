@@ -14,7 +14,7 @@
 						<div class="foot">
 							<span class="price">￥<span>{{item.price}}</span></span>
 							<span class="bought">{{item.saleNum}}人已买</span>
-							<span class="juan" v-if="item.couponValue">{{item.couponValue}}</span>
+							<!-- <span class="juan" v-if="item.couponValue">{{item.couponValue}}</span> -->
 						</div>
 					</div>
 				</div>
