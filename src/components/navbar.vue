@@ -7,56 +7,56 @@
 			</div>
 		</div>
 		<div class="nav">
-			<router-link tag="div" to="/" activeClass="zerwinActive" class="now">
+			<router-link tag="div" to="/" activeClass="zerwinActive" class="now" exact>
 				<span>今日推荐</span>
 			</router-link>
 			<div class="line"></div>
 			<div class="kind">
 				<ul>
-					<router-link tag="li" to="/" activeClass="zerwinActive">
+					<router-link tag="li" to="/tab/2" activeClass="zerwinActive">
 						<span>女装</span>
 					</router-link>
-					<router-link tag="li" to="/" activeClass="zerwinActive">
+					<router-link tag="li" to="/tab/5" activeClass="zerwinActive">
 						<span>男装</span>
 					</router-link>
-					<router-link tag="li" to="/" activeClass="zerwinActive">
+					<router-link tag="li" to="/tab/3" activeClass="zerwinActive">
 						<span>美妆护肤</span>
 					</router-link>
-					<router-link tag="li" to="/" activeClass="zerwinActive">
+					<router-link tag="li" to="/tab/4" activeClass="zerwinActive">
 						<span>配饰</span>
 					</router-link>
-					<router-link tag="li" to="/" activeClass="zerwinActive">
+					<router-link tag="li" to="/tab/13" activeClass="zerwinActive">
 						<span>女鞋</span>
 					</router-link>
-					<router-link tag="li" to="/" activeClass="zerwinActive">
+					<router-link tag="li" to="/tab/19" activeClass="zerwinActive">
 						<span>男鞋</span>
 					</router-link>
-					<router-link tag="li" to="/" activeClass="zerwinActive">
+					<router-link tag="li" to="/tab/10" activeClass="zerwinActive">
 						<span>零食王国</span>
 					</router-link>
-					<router-link tag="li" to="/" activeClass="zerwinActive">
+					<router-link tag="li" to="/tab/24" activeClass="zerwinActive">
 						<span>母婴用品</span>
-					</router-link><router-link tag="li" to="/" activeClass="zerwinActive">
+					</router-link><router-link tag="li" to="/tab/14" activeClass="zerwinActive">
 						<span>箱包</span>
 					</router-link>
-					<router-link tag="li" to="/" activeClass="zerwinActive">
+					<router-link tag="li" to="/tab/15" activeClass="zerwinActive">
 						<span>个人洗护</span>
 					</router-link>
-					<router-link tag="li" to="/" activeClass="zerwinActive">
+					<router-link tag="li" to="/tab/6" activeClass="zerwinActive">
 						<span>手机周边</span>
 					</router-link>
-					<router-link tag="li" to="/" activeClass="zerwinActive">
+					<router-link tag="li" to="/tab/12" activeClass="zerwinActive">
 						<span>数码家电</span>
-					</router-link><router-link tag="li" to="/" activeClass="zerwinActive">
+					</router-link><router-link tag="li" to="/tab/16" activeClass="zerwinActive">
 						<span>内衣袜子</span>
 					</router-link>
-					<router-link tag="li" to="/" activeClass="zerwinActive">
+					<router-link tag="li" to="/tab/17" activeClass="zerwinActive">
 						<span>成人用品</span>
 					</router-link>
-					<router-link tag="li" to="/" activeClass="zerwinActive">
+					<router-link tag="li" to="/tab/7" activeClass="zerwinActive">
 						<span>日用家居</span>
 					</router-link>
-					<router-link tag="li" to="/" activeClass="zerwinActive">
+					<router-link tag="li" to="/tab/11" activeClass="zerwinActive">
 						<span>文体娱乐</span>
 					</router-link>
 				</ul>

@@ -8,7 +8,7 @@
 					<div class="des">
 						<p class="title">{{item.title}}</p>
 						<div class="keyword">
-							<span class="left">{{item.platform===1?'淘宝':'天猫'}}</span>
+							<span class="left" :class="item.platform===1?'':'cat'">{{item.platform===1?'淘宝':'天猫'}}</span>
 							<span class="right">包邮</span>
 						</div>
 						<div class="foot">
@@ -31,8 +31,10 @@
 <style scoped lang="scss">
 	img{
 		width:100%;
+		display:block;
 	}
 	ul{
+		background:#f5f5f5;
 		overflow: hidden;
 		li{
 			width:50%;
@@ -61,6 +63,9 @@
 						padding:0 2px;
 						border-radius: 2px;
 						margin-left:5px;
+					}
+					span.cat{
+						background: #df2b2f;
 					}
 					span.right{
 						float:right;

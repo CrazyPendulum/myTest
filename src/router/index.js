@@ -19,7 +19,7 @@ export default new Router({
       component: Home
     },
 		{
-		  path: 'tab/:kind',
+		  path: '/tab/:kind',
 			component: Tab
 		},
 		{
@@ -35,7 +35,7 @@ export default new Router({
 			component: Login
 		},
 		{
-			path: '/ register',
+			path: '/register',
 			component: Register
 		}
   ]

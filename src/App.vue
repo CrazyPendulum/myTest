@@ -21,10 +21,20 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 *{
 	padding:0;
 	margin:0;
 	list-style: none;
+}
+.zerwinActive{
+	border-bottom: 4px solid #43240c;
+	box-sizing: border-box;
+	margin-top:-4px;
+	overflow: hidden;
+	span{
+		transform: translateY(4px);
+		display: block;
+	}
 }
 </style>

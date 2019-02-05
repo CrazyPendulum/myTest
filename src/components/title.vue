@@ -1,5 +1,5 @@
 <template>
-	<div class="title">
+	<div :class="isWhite?'white':''">
 		<span class="left"></span>
 		<span class="title"><span>{{text}}</span></span>
 		<span class="right"></span>
@@ -9,7 +9,8 @@
 <script>
 	export default{
 		props:{
-			text:String
+			text:String,
+			isWhite:Boolean
 		}
 	}
 </script>
@@ -57,6 +58,9 @@
 		}
 		span.right{
 			
+		}
+		div.white{
+			background:#fff;
 		}
 	}
 </style>
