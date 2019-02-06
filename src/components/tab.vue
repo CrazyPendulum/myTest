@@ -1,3 +1,4 @@
+
 <template>
 	<div class="tab">
 		<div class="title">
@@ -5,10 +6,11 @@
 		</div>
 		<div class="kindlist">
 			<div class="kind" v-for="item in kindList" :key="item.imageUrl">
-				<dl>
-					<dt><img :src="item.imageUrl" alt="图片显示失败"></dt>
-					<dd><p>{{item.title}}</p></dd>
-				</dl>
+					
+					<router-link tag="dl" :to="'/category/'+item.url.slice(-4)">
+						<dt><img :src="item.imageUrl" alt="图片显示失败"></dt>
+						<dd><p>{{item.title}}</p></dd>
+					</router-link>
 			</div>
 		</div>
 		<div class="title">

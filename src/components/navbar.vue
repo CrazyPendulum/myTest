@@ -1,5 +1,5 @@
 <template>
-	<div id="navbar">
+	<div id="navbar" v-if="this.$store.state.isShow">
 		<div id="top">
 			<div class="search">
 				<span class="iconfont icon-search"></span>
@@ -69,6 +69,18 @@
 </template>
 
 <script>
+	export default{
+		data(){
+			return{
+				
+			}
+		},
+		beforeMount(){
+			window.onscroll = function(evt){
+				console.log('aaa')
+			}
+		}
+	}
 </script>
 	
 <style scoped lang="scss">
@@ -104,7 +116,7 @@
 			color:#43240c;
 			height:50px;
 			display: flex;
-// 			
+ 			box-shadow: 1px 2px 5px hsla(0,11%,79%,.5);
 			div.now{
 				font-size:15px;
 				margin-left:5%;

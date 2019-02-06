@@ -2,6 +2,7 @@
 	<div>
 		<ul>
 			<li v-for="item in list" :key="item.imageUrl">
+				<router-link tag="div" :to="item.type===2?'':'/detail/'+item.id">
 				<img :src="item.image" alt="图片显示失败" v-if="item.type===2" class="type2">
 				<div class="brand" v-else-if="item.type===1">
 					<img :src="item.image" alt="图片显示失败">
@@ -18,7 +19,8 @@
 						</div>
 					</div>
 				</div>
-			</li>
+				</router-link>
+			</li>	
 		</ul>
 	</div>
 </template>

@@ -3,10 +3,10 @@ import Router from 'vue-router'
 // import HelloWorld from '@/components/test'
 import Home from '../components/home'
 import Tab from '../components/tab'
-import List from '../components/list'
 import Detail from '../components/detail'
 import Login from '../components/login'
 import Register from '../components/register'
+import Category from '../components/category'
 
 Vue.use(Router)
 
@@ -23,10 +23,6 @@ export default new Router({
 			component: Tab
 		},
 		{
-			path: '/list',
-			component: List
-		},
-		{
 			path: '/detail/:id',
 			component: Detail
 		},
@@ -37,6 +33,10 @@ export default new Router({
 		{
 			path: '/register',
 			component: Register
+		},
+		{
+			path: '/category/:id',
+			component: Category
 		}
   ]
 })

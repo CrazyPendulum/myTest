@@ -36,5 +36,11 @@ export default {
 		transform: translateY(4px);
 		display: block;
 	}
+a{
+	text-decoration: none;
+}
+a:visited{
+	text-decoration: none;
+}
 }
 </style>
