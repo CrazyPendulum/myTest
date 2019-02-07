@@ -174,6 +174,7 @@
 			background:#fdde4a;
 			line-height: 50px;
 			transform: translateY(10px);
+			z-index: 88;
 		}
 	}
 </style>
