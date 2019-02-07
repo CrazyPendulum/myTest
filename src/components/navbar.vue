@@ -1,6 +1,6 @@
 <template>
-	<div id="navbar" v-if="this.$store.state.isShow">
-		<div id="top">
+	<div id="navbar" v-if="this.$store.state.isShow" :class="isFixed?'fixed':''">
+		<div id="top" >
 			<div class="search">
 				<span class="iconfont icon-search"></span>
 				<span>搜索商品，发现更多优品</span>
@@ -72,13 +72,20 @@
 	export default{
 		data(){
 			return{
-				
+				// scrollTop:0,
+				isFixed:false
 			}
 		},
 		beforeMount(){
-			window.onscroll = function(evt){
-				console.log('aaa')
-			}
+			var self = this;
+			window.addEventListener('scroll',function(){
+				 var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+				 if(scrollTop>0){
+					 self.isFixed = true;
+				 }else if(scrollTop===0){
+					 self.isFixed = false;
+				 }
+			})
 		}
 	}
 </script>
@@ -153,6 +160,20 @@
 					font-size:20px;
 				}
 			}
+		}
+	}
+	div.fixed{
+		#top{
+			display: none;
+		}
+		div.nav{
+			position: fixed;
+			width:100%;
+			top:0;
+			left:0;
+			background:#fdde4a;
+			line-height: 50px;
+			transform: translateY(10px);
 		}
 	}
 </style>

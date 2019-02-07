@@ -112,5 +112,10 @@
 		li:nth-child(even){
 			padding-left:3px;
 		}
+		div.brand{
+			img{
+				height:184.5px;
+			}
+		}
 	}
 </style>
