@@ -1,9 +1,12 @@
 <template>
-	<div>
+	<div class="allpendulum">
 		<navbar></navbar>
 		<section>
 		<router-view/>
 		</section>
+		<div class="toppendulum" @click="toTop" :class="isShow?'':'hidd'">
+			<span class="iconfont icon-jiantoushang"></span>
+		</div>
   </div>
 </template>
 
@@ -12,11 +15,27 @@
 export default {
   data(){
 		return {
-			
+			isShow:false
 		}
 	},
 	components:{
 	  navbar
+	},
+	mounted(){
+		var self = this;
+		window.addEventListener('scroll',function(){
+			var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+			if(scrollTop>1000){
+				self.isShow = true;
+			}else{
+				self.isShow = false;
+			}
+		})
+	},
+	methods:{
+		toTop(){
+			document.documentElement.scrollTop = document.body.scrollTop = 0;     
+		}
 	}
 }
 </script>
@@ -42,5 +61,27 @@ a{
 a:visited{
 	text-decoration: none;
 }
+}
+div.allpendulum{
+	div.toppendulum{
+		display: block;
+		position:fixed;
+		right:10px;
+		bottom:100px;
+		width:45px;
+		height:45px;
+		line-height: 43px;
+		text-align: center;
+		border-radius: 50%;
+		background:#38b0de;
+		opacity: .8;
+		span.icon-jiantoushang{
+			font-size:26px;
+			color:#fff;
+		}
+	}
+	div.hidd{
+		display: none;
+	}
 }
 </style>

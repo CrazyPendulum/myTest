@@ -1,6 +1,6 @@
 
 <template>
-	<div class="tab">
+	<div class="tab" ref="box">
 		<div class="title">
 			<Title text="潮流精选" :isWhite='true'></Title>
 		</div>
@@ -28,7 +28,9 @@
 		data(){
 			return{
 				kindList:[],
-				list:[]
+				list:[],
+				start:0,
+				lazyCount:0
 			}
 		},
 		beforeMount(){
@@ -37,7 +39,28 @@
 				// console.log(res.data)
 				this.kindList = res.data.data.categories;
 				this.list = res.data.data.items.list;
+				this.start += 20;
+				this.lazyCount += 1;
 			})
+		},
+		mounted(){
+			 window.addEventListener('scroll', this.handleScroll);
+		},
+		methods:{
+			handleScroll(){
+				var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+				if(this.$refs.box){
+					if(scrollTop>this.$refs.box.clientHeight-document.documentElement.clientHeight-1000){
+						if(this.start === this.lazyCount*20){
+							this.lazyCount += 1;
+							axios.get(`http://www.xiongmaoyouxuan.com/api/tab/${this.$route.params.kind}/feeds?start=${this.start}&sort=0`).then(res=>{
+								this.list.push(...res.data.data.list)
+								this.start += 20;
+							})
+						}
+					}
+				}
+			}
 		},
 // 		Updated(){
 // 			axios.get(`http://www.xiongmaoyouxuan.com/api/tab/${this.$route.params.kind}?start=0`).then(res=>{
@@ -50,6 +73,7 @@
 			'$route' (to, from) {
 			axios.get(`http://www.xiongmaoyouxuan.com/api/tab/${this.$route.params.kind}?start=0`).then(res=>{
 				// console.log(res.data)
+				document.documentElement.scrollTop = document.body.scrollTop = 0;
 				this.kindList = res.data.data.categories;
 				this.list = res.data.data.items.list;
 			})

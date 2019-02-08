@@ -40,6 +40,7 @@
 			<div class="coupon">{{detail.couponValue?detail.couponValue:''}}</div>
 			<button>{{detail.couponValue?'领劵购买':'去淘宝买'}}</button>
 		</footer>
+		<span class="iconfont icon-jiantoushang" @click="toLastPage"></span>
 	</div>
 </template>
 
@@ -81,6 +82,9 @@
 				}
 				var data = price.slice(index)
 				return data;
+			},
+			toLastPage(){
+				this.$router.go(-1);
 			}
 		}
 	}
@@ -223,5 +227,20 @@
 			font-weight: 800;
 			font-size:16px;
 		}
+	}
+	span.icon-jiantoushang{
+		position:fixed;
+		left:20px;
+		top:20px;
+		width:37px;
+		height:37px;
+		background:rgba(0,0,0,.5);
+		z-index: 10;
+		border-radius: 50%;
+		color:#fff;
+		text-align: center;
+		line-height:35px;
+		transform: rotate(-90deg);
+		font-size:18px;
 	}
 </style>

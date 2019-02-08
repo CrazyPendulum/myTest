@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="all" ref='test'>
 		 <div class="block" v-if="this.bannerList.length">
 		  <el-carousel height="140px">
 		    <el-carousel-item v-for="item in bannerList" :key="item.imageUrl">
@@ -42,7 +42,9 @@
 			return{
 				bannerList:[],
 				gridsV2:[],
-				list:[]
+				list:[],
+				start:0,
+				lazyCount:0
 			}
 		},
 		mounted(){
@@ -54,11 +56,33 @@
 				this.bannerList = res.data.data.banners;
 				this.gridsV2 = res.data.data.gridsV2;
 				this.list = res.data.data.items.list;
+				this.start += 20;
+				this.lazyCount += 1;
 			})
+			 window.addEventListener('scroll', this.handleScroll)
 		},
 		components:{
 			Title,
 			List
+		},
+		beforeDestroy(){
+			window.removeEventListener('scroll',this.handleScroll())
+		},
+		methods:{
+			handleScroll(){
+				var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+				if(this.$refs.test){
+					if(scrollTop>this.$refs.test.clientHeight-document.documentElement.clientHeight-1000){
+						if(this.start === this.lazyCount*20){
+							this.lazyCount += 1;
+							axios.get(`http://www.xiongmaoyouxuan.com/api/tab/1/feeds?start=${this.start}&sort=0`).then(res=>{
+								this.list.push(...res.data.data.list)
+								this.start += 20;
+							})
+						}
+					}
+				}
+			}
 		}
 	}
 </script>
