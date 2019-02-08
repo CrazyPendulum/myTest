@@ -2,8 +2,10 @@
 	<div id="navbar" v-if="this.$store.state.isShow" :class="isFixed?'fixed':''">
 		<div id="top" >
 			<div class="search">
-				<span class="iconfont icon-search"></span>
-				<span>搜索商品，发现更多优品</span>
+				<router-link tag="div" to="/search">
+					<span class="iconfont icon-search"></span>
+					<span>搜索商品，发现更多优品</span>
+				</router-link>
 			</div>
 		</div>
 		<div class="nav">
